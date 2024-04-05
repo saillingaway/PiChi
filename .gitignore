@@ -1,0 +1,5 @@
+.DS_Store
+
+node_modules
+/package.json
+bin/data/Shinkanzen_N2.txt
