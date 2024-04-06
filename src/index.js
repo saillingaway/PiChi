@@ -19,6 +19,7 @@ const fs = require('fs');
 // sets dirname to point to the filepath of ../bin/data to be able to read all files
 const dirname = __dirname.substring(0, __dirname.lastIndexOf("/") + 1) + 'bin/data/';
 let sentencesFile = dirname + 'generated_files/sentence_examples.txt';
+let blankSentencesFile = dirname + 'generated_files/sentence_blanks_examples.txt';
 const examplesDirName = dirname + '/generated_files/';
 let terms = [];
 
@@ -65,7 +66,11 @@ function processTerms(terms){
                 if(i < result.results.length){
                     try {
                         let example = result.results[i];
-                        saveSentenceToFile(example.kanji);
+                        saveSentenceToFile(example.kanji, sentencesFile);
+
+                        // also process the sentence to replace the term with underscores for worksheets
+                        let blank_sentence = processSentence(example.kanji, term);
+                        saveSentenceToFile(blank_sentence, blankSentencesFile);
                         
                     } catch(error){
                         console.error("there was an error: ", error);
@@ -77,12 +82,21 @@ function processTerms(terms){
 }
 
 /**
+ * Takes a sentence and returns 
+ */
+function processSentence(sentence, term){
+    let blank_sentence = "";
+    blank_sentence = sentence.replace(term, "_________________");
+    return blank_sentence;
+}
+
+/**
  * Adds a sentence to the end of the 'sentence_examples.txt' file.
  * @param {String} sentence 
  */
-function saveSentenceToFile(sentence){
+function saveSentenceToFile(sentence, file){
     // let dir = dirname + '/generated_files/sentence_examples.txt';
-    fs.appendFile(sentencesFile, sentence + '\n', (err) => {
+    fs.appendFile(file, sentence + '\n', (err) => {
         if(err){
             console.log(err);
         }
