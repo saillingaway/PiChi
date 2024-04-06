@@ -65,13 +65,13 @@ function processTerms(terms){
             for (let i  = 0; i < 5; i++){
                 if(i < result.results.length){
                     try {
+                        // save the whole example sentence on one line.
                         let example = result.results[i];
                         saveSentenceToFile(example.kanji, sentencesFile);
 
-                        // also process the sentence to replace the term with underscores for worksheets
+                        // also process the sentence to replace the term with a blank space (for worksheets).
                         let blank_sentence = processSentence(example.kanji, term);
                         saveSentenceToFile(blank_sentence, blankSentencesFile);
-                        
                     } catch(error){
                         console.error("there was an error: ", error);
                     }
@@ -82,20 +82,29 @@ function processTerms(terms){
 }
 
 /**
- * Takes a sentence and returns 
+ * Replaces a term within a sentence with underscores.
+ * @param {*} sentence - the example sentence containting the term.
+ * @param {*} term - the term within the sentence that will be replaced with a blank.
+ * @returns sentence with a blank where the term goes.
  */
 function processSentence(sentence, term){
-    let blank_sentence = "";
-    blank_sentence = sentence.replace(term, "_________________");
-    return blank_sentence;
+    try{
+        let blank_sentence = "";
+        // TODO: update the blank to be proprotionately long to the number of characters in the term
+        // one character = 2 underscores
+        blank_sentence = sentence.replace(term, "_________________");
+     return blank_sentence;
+    } catch (err) {
+        console.error(`Error: The sentence ${sentence} does not contain ${term}. ` + error);
+    }
 }
 
 /**
  * Adds a sentence to the end of the 'sentence_examples.txt' file.
- * @param {String} sentence 
+ * @param {String} sentence - the sentence that will be saved/written/output to the file.
+ * @param {String} file - the name of the file where the sentence will be written to.
  */
 function saveSentenceToFile(sentence, file){
-    // let dir = dirname + '/generated_files/sentence_examples.txt';
     fs.appendFile(file, sentence + '\n', (err) => {
         if(err){
             console.log(err);
