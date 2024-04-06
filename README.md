@@ -21,3 +21,10 @@ node index.js
 ```
 
 After it’s done running, all of the content will go into the `/bin/data/generated_files` folder. Export it any way you like!
+
+## Features in Development
+
+I have a lot of plans for additional functionality, including:
+- **Better Formatting for Generated Content** - instead of material just being written to a file inside the project directory, actual PDF worksheets complete with headings, subheadings, boxes containing different terms to fill into sentences, etc. will be created.
+- **More Robust File Import/Export Options** - you will be able to import terms from other locations and file formats, name generated files and specify the separating characters between terms (for example, terms seperated line by line, by space, by comma, etc…) You will also be able to set different locations for generated files.
+- **Image to Text Functionality** - you will be able to take a photo of your textbook page, JLPT book page, or study guide and instantly get a list of all the terms on the page. You will be able to choose what information you want to get for each term (Kanji (if applicable), reading, english meanings, example sentence & how many, JLPT level, etc). You can then funnel the terms to the relevent functions of your choice.
