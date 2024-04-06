@@ -2,4 +2,5 @@
 
 node_modules
 /package.json
-bin/data/Shinkanzen_N2.txt
+bin/data/*
+bin/data/generated_files/*
