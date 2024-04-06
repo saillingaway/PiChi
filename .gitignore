@@ -3,4 +3,5 @@
 node_modules
 /package.json
 bin/data/*
-bin/data/generated_files/*
+bin/data/generated_files/
+bin/data/generated_files/sentence_examples.txt
