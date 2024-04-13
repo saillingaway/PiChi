@@ -23,6 +23,12 @@ node index.js
 After it’s done running, all of the content will go into the `/bin/data/generated_files` folder. Export it any way you like!
 
 ## Features in Development
+### Coming Next
+- **shorter sentences option** - some of the top results for term sentences are quite long, in the beginning it can be easier to use shorter. easier to understand sentences. I'm working out how to allow a users a choice to grab shorter sentences.
+- **fill in the blank drill sheets/tables for terms and their readings** - This will be a simple, printable worksheet for you to drill writing the terms from the readings, or vice versa. There will be several formats:
+    1. a basic chart that takes up the entire page with terms in the first column in randomized order.
+    2. an ordered list (following the rank in New Master JLPT N2 Kanji workbook) of sections with the character on the left of the page, and that character's terms from the unit listed to their right, with blanks beside each of them for alternating drilling.
+    3. An 'answer key' for both, listed seperately so you can check your work easily as you go.
 
 I have a lot of plans for additional functionality, including:
 - **Better Formatting for Generated Content** - instead of material just being written to a file inside the project directory, actual PDF worksheets complete with headings, subheadings, boxes containing different terms to fill into sentences, etc. will be created.
